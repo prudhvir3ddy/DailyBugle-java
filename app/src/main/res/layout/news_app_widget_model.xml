@@ -22,6 +22,6 @@
         android:layout_below="@+id/home_imgview"
         android:background="@color/colorAccent"
         android:text="@string/news"
-        android:textColor="#fff" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>

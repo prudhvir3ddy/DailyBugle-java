@@ -22,7 +22,9 @@
         </activity>
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.FavouriteActivity" />
-        <activity android:name=".activities.NewsDetailActivity" />
+        <activity
+            android:name=".activities.NewsDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name=".widget.NewsAppWidget">
             <intent-filter>

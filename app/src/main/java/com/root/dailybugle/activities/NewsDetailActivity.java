@@ -5,7 +5,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -51,8 +50,10 @@ public class NewsDetailActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress);
         roomDatabase = NewsRoomDatabase.getDatabase(getApplicationContext());
         final String source = bundle.getString(Constants.SOURCE);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(source);
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(source);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
         final String title = bundle.getString(Constants.TITLE);
         String author1 = bundle.getString(Constants.AUTHOR);
 
