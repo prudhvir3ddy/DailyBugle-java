@@ -15,4 +15,20 @@
     <string name="add_widget">Add widget</string>
     <string name="please_add_stories_to_display_here">Please Add Stories to Display Here</string>
     <string name="Click_to_Add">Click to Add</string>
+    <string name="author_of_article">Author Of Article:</string>
+    <string name="published_at">Published At :</string>
+    <string name="description">Description :</string>
+    <string name="date">date</string>
+    <string name="more_details">MORE DETAILS :</string>
+    <string name="add_to_favourites">Add To Favourites</string>
+    <string name="removefav">Remove Favourite</string>
+    <string name="read_more">READ MORE</string>
+    <string name="enter_keyword_to_search">Enter Keyword To Search:</string>
+    <string name="search_image">Search Image</string>
+    <string name="header_image">header image</string>
+    <string name="widget_image">Widget Image</string>
+    <string name="news">news</string>
+    <string name="image_for_news">Image for news</string>
+    <string name="favourites">Favourites</string>
+    <string name="search">search</string>
 </resources>

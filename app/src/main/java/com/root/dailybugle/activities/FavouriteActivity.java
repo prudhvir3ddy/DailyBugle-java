@@ -1,6 +1,5 @@
 package com.root.dailybugle.activities;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -12,26 +11,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.root.dailybugle.R;
 import com.root.dailybugle.adapters.FavouriteAdapter;
 import com.root.dailybugle.database.NewsModel;
 import com.root.dailybugle.database.NewsRoomDatabase;
 import com.root.dailybugle.database.NewsViewModel;
-import com.root.dailybugle.models.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FavouriteActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    FavouriteAdapter adapter;
-    NewsRoomDatabase newsRoomDatabase;
-    BottomNavigationView bottomNavigationView;
-    LiveData<List<NewsModel>> list;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private FavouriteAdapter adapter;
+    private NewsRoomDatabase newsRoomDatabase;
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +48,6 @@ public class FavouriteActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 if(item.getItemId()==R.id.search)
                     startActivity(new Intent(getApplicationContext(),SearchActivity.class));
-                if(item.getItemId()==R.id.favourites){
-                }
                 return false;
             }
         });

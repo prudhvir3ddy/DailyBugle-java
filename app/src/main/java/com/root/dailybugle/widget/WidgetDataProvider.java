@@ -17,19 +17,15 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
+class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
     public static final String TOAST_ACTION = "toast";
     private final Context context;
 
-    List<NewsModel> list;
-
-    private int appWidgetId;
-
-    int pos;
+    private List<NewsModel> list;
 
     public WidgetDataProvider(Context context, Intent intent) {
         this.context = context;
-        appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+        int appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID);
 
     }

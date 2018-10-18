@@ -29,28 +29,19 @@ public class NewsAppWidget extends AppWidgetProvider {
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             remoteViews.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent);
 
-            if (position == -1) {
-                remoteViews.setViewVisibility(R.id.empty_widget_layout, View.VISIBLE);
-                remoteViews.setViewVisibility(R.id.data_widget_layout, View.INVISIBLE);
+            remoteViews.setViewVisibility(R.id.empty_widget_layout, View.INVISIBLE);
+            remoteViews.setViewVisibility(R.id.data_widget_layout, View.VISIBLE);
 
-                PendingIntent pendingIntent1 = PendingIntent.getActivity(context, 0, new Intent(context, FavouriteActivity.class), 0);
-                remoteViews.setOnClickPendingIntent(R.id.empty_widget_btn, pendingIntent1);
+            Intent intent1 = new Intent(context, WidgetService.class);
+            remoteViews.setRemoteAdapter(R.id.widgetlistview, intent1);
 
-            } else {
-                remoteViews.setViewVisibility(R.id.empty_widget_layout, View.INVISIBLE);
-                remoteViews.setViewVisibility(R.id.data_widget_layout, View.VISIBLE);
-
-                Intent intent1 = new Intent(context, WidgetService.class);
-                remoteViews.setRemoteAdapter(R.id.widgetlistview, intent1);
-
-                Intent toastIntent = new Intent(context, NewsDetailActivity.class);
-                toastIntent.setAction(WidgetDataProvider.TOAST_ACTION);
-                toastIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-                intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
-                PendingIntent toastPendingIntent = PendingIntent.getActivity(context, 0, toastIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
-                remoteViews.setPendingIntentTemplate(R.id.widgetlistview, toastPendingIntent);
-            }
+            Intent toastIntent = new Intent(context, NewsDetailActivity.class);
+            toastIntent.setAction(WidgetDataProvider.TOAST_ACTION);
+            toastIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+            intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
+            PendingIntent toastPendingIntent = PendingIntent.getActivity(context, 0, toastIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+            remoteViews.setPendingIntentTemplate(R.id.widgetlistview, toastPendingIntent);
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widgetlistview);
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
             super.onUpdate(context, appWidgetManager, appWidgetIds);

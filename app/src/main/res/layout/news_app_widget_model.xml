@@ -11,8 +11,8 @@
         android:id="@+id/home_imgview"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:elevation="15dp"
         android:scaleType="fitXY"
+        android:contentDescription="@string/widget_image"
         android:src="@drawable/news" />
 
     <Button
@@ -20,10 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/home_imgview"
-        android:layout_weight="1"
         android:background="@color/colorAccent"
-        android:elevation="4dp"
-        android:text="news"
+        android:text="@string/news"
         android:textColor="#fff" />
 
 </RelativeLayout>

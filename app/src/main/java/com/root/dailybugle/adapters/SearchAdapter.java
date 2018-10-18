@@ -23,8 +23,8 @@ import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
 
- List<Model> list;
- Context context;
+    private final List<Model> list;
+    private final Context context;
 
  public SearchAdapter(List<Model> list, Context context){
      this.list=list;
@@ -34,8 +34,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     @Override
     public SearchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.smodel,parent,false);
-      SearchViewHolder searchViewHolder = new SearchViewHolder(view);
-      return  searchViewHolder;
+        return new SearchViewHolder(view);
     }
 
     @Override
@@ -81,11 +80,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     public class SearchViewHolder extends RecyclerView.ViewHolder {
-     ImageView imageView;
-     ProgressBar progressBar;
-     Button b2;
-     CardView cardView;
-        public SearchViewHolder(View itemView) {
+        final ImageView imageView;
+        final ProgressBar progressBar;
+        final Button b2;
+        final CardView cardView;
+
+        SearchViewHolder(View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.home_imgview);
             progressBar=itemView.findViewById(R.id.progress);

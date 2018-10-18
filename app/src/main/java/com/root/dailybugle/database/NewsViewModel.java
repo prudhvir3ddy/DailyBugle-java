@@ -9,7 +9,7 @@ import java.util.List;
 
 public class NewsViewModel extends AndroidViewModel {
 
-    public LiveData<List<NewsModel>> list;
+    private final LiveData<List<NewsModel>> list;
 
     public NewsViewModel(@NonNull Application application) {
         super(application);

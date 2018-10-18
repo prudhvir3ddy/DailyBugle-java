@@ -43,21 +43,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Object item = "technology";
-    LoadToast lt;
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    HomeAdapter adapter;
-    List<Model> list;
-    private FirebaseAnalytics mFirebaseAnalytics;
-    BottomNavigationView bottomNavigationView;
-    Connection connection;
+    private Object item = "technology";
+    private LoadToast lt;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private HomeAdapter adapter;
+    private List<Model> list;
+    private BottomNavigationView bottomNavigationView;
+    private Connection connection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         list = new ArrayList<>();
         lt = new LoadToast(MainActivity.this);
@@ -72,9 +71,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.news) {
-
-                }
                 if (item.getItemId() == R.id.search)
                     startActivity(new Intent(getApplicationContext(), SearchActivity.class));
                 if (item.getItemId() == R.id.favourites)

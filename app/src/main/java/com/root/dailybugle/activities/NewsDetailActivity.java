@@ -24,12 +24,15 @@ import com.squareup.picasso.Picasso;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
-    ImageView imageView;
-    TextView description, author, date;
-    Button button, button2;
-    ProgressBar progressBar;
+    private ImageView imageView;
+    private TextView description;
+    private TextView author;
+    private TextView date;
+    private Button button;
+    private Button button2;
+    private ProgressBar progressBar;
     private NewsRoomDatabase roomDatabase;
-    boolean isExistFav;
+    private boolean isExistFav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +54,14 @@ public class NewsDetailActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(source);
         final String title = bundle.getString(Constants.TITLE);
-        final String author1 = bundle.getString(Constants.AUTHOR);
+        String author1 = bundle.getString(Constants.AUTHOR);
+
         final String publish = bundle.getString(Constants.PUBLISHEDAT);
-        final String desc = bundle.getString(Constants.DESCRIPTION);
+        String desc = bundle.getString(Constants.DESCRIPTION);
+        if (author1.equals("") || author1.equals("null"))
+            author1 = "NOT FOUND";
+        if (desc.equals("") || desc.equals("null"))
+            desc = "No Description Available";
         author.setText(author1);
         date.setText(publish);
         description.setText(desc);
@@ -65,7 +73,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             public void run() {
                 isExistFav = newsRoomDatabase.newsDao().getFav(title, publish);
                 if (isExistFav)
-                    button2.setText("Remove Favourite");
+                    button2.setText(R.string.removefav);
             }
         });
         Picasso.with(this)
@@ -93,15 +101,17 @@ public class NewsDetailActivity extends AppCompatActivity {
         });
 
 
+        final String finalAuthor = author1;
+        final String finalDesc = desc;
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final NewsModel newsModel = new NewsModel(source, author1, title, desc, image, url, publish,true);
+                final NewsModel newsModel = new NewsModel(source, finalAuthor, title, finalDesc, image, url, publish, true);
                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
                     @Override
                     public void run() {
-                        if(button2.getText().toString()=="Remove Favourite"){
+                        if (button2.getText().toString().equals(getResources().getString(R.string.removefav))) {
                             roomDatabase.newsDao().delete(newsModel);
                         }
                         else {

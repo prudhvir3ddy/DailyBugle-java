@@ -22,8 +22,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavouriteViewHolder> {
-    List<NewsModel> list;
-    Context context;
+    private final List<NewsModel> list;
+    private final Context context;
 
     public FavouriteAdapter(List<NewsModel> list,Context context){
         this.list=list;
@@ -34,8 +34,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
     @Override
     public FavouriteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.smodel,parent,false);
-        FavouriteViewHolder favouriteViewHolder = new FavouriteViewHolder(view);
-        return  favouriteViewHolder;
+        return new FavouriteViewHolder(view);
     }
 
     @Override
@@ -81,10 +80,10 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
     }
 
     public class FavouriteViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        ProgressBar progressBar;
-        Button b2;
-        CardView cardView;
+        final ImageView imageView;
+        final ProgressBar progressBar;
+        final Button b2;
+        final CardView cardView;
         public FavouriteViewHolder(View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.home_imgview);

@@ -6,9 +6,17 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "news_row",primaryKeys = {"sname","date"})
 public class NewsModel {
     @NonNull
-    String sname,date;
-    String author,title,desc,image,url;
-    boolean isThere;
+    private
+    String date;
+    @NonNull
+    private
+    String sname;
+    private String author;
+    private String title;
+    private String desc;
+    private String image;
+    private String url;
+    private boolean isThere;
 
     public NewsModel(String sname,String author,String title,String desc,String image,String url,String date,boolean isThere){
         this.sname=sname;

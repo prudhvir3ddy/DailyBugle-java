@@ -36,15 +36,14 @@ import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNavigationView;
-    ImageButton button;
-    EditText editText;
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    SearchAdapter searchAdapter;
-    List<Model> list;
-    LoadToast lt;
-    Connection connection;
+    private ImageButton button;
+    private EditText editText;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private SearchAdapter searchAdapter;
+    private List<Model> list;
+    private LoadToast lt;
+    private Connection connection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
    list = new ArrayList<>();
@@ -72,16 +71,13 @@ public class SearchActivity extends AppCompatActivity {
         });
 
 
-        bottomNavigationView=findViewById(R.id.snavigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.snavigation);
         bottomNavigationView.setSelectedItemId(R.id.search);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId()==R.id.news)
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                if(item.getItemId()==R.id.search){
-
-                }
                 if(item.getItemId()==R.id.favourites)
                     startActivity(new Intent(getApplicationContext(),FavouriteActivity.class));
                 return false;

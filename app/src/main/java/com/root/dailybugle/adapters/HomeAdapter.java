@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +22,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
-    List<Model> list;
-    Context context;
+    private final Context context;
+    private List<Model> list;
 
     public HomeAdapter(List<Model> list, Context context){
         this.list=list;
@@ -35,12 +34,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         this.list =list;
         notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public HomeAdapter.HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.smodel,parent,false);
-        HomeViewHolder homeViewHolder = new HomeViewHolder(view);
-        return  homeViewHolder;
+        return new HomeViewHolder(view);
     }
 
     @Override
@@ -86,10 +85,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
     }
 
     public class HomeViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        ProgressBar progressBar;
-        Button b2;
-        CardView cardView;
+        final ImageView imageView;
+        final ProgressBar progressBar;
+        final Button b2;
+        final CardView cardView;
         public HomeViewHolder(View itemView) {
             super(itemView);
                 imageView=itemView.findViewById(R.id.home_imgview);

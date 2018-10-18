@@ -1,7 +1,13 @@
 package com.root.dailybugle.models;
 
 public class Model {
-    String sname,author,title,desc,image,url,date;
+    private String date;
+    private String sname;
+    private String author;
+    private String title;
+    private String desc;
+    private String image;
+    private String url;
 
     public String getDate() {
         return date;
