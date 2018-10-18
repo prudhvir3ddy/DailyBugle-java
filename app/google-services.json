@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "56970174579",
+    "firebase_url": "https://dailybugle-2eccb.firebaseio.com",
+    "project_id": "dailybugle-2eccb",
+    "storage_bucket": "dailybugle-2eccb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56970174579:android:b15cc02f6817fdd1",
+        "android_client_info": {
+          "package_name": "com.root.dailybugle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56970174579-qtelb2h58juag9c6i3sf7kb9j4fqm450.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsU0-VIdAbwGYp07mWznP7UYp3jK4ZgWs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

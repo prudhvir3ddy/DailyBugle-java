@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/c1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:id="@+id/home_imgview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:elevation="15dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/news" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_imgview"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:elevation="4dp"
+        android:text="news"
+        android:textColor="#fff" />
+
+</RelativeLayout>
