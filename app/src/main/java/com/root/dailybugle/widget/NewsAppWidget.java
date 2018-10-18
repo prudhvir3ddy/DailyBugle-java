@@ -1,17 +1,12 @@
-package com.root.dailybugle.Widget;
+package com.root.dailybugle.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
@@ -19,10 +14,6 @@ import android.widget.Toast;
 import com.root.dailybugle.R;
 import com.root.dailybugle.activities.FavouriteActivity;
 import com.root.dailybugle.activities.NewsDetailActivity;
-import com.root.dailybugle.database.NewsModel;
-import com.root.dailybugle.database.NewsRoomDatabase;
-
-import java.util.List;
 
 
 public class NewsAppWidget extends AppWidgetProvider {

@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import com.root.dailybugle.R;
 import com.root.dailybugle.activities.NewsDetailActivity;
 import com.root.dailybugle.models.Model;
+import com.root.dailybugle.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -67,13 +68,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,NewsDetailActivity.class);
-                intent.putExtra("image", model.getImage());
-                intent.putExtra("desc", model.getDesc());
-                intent.putExtra("title", model.getTitle());
-                intent.putExtra("author", model.getAuthor());
-                intent.putExtra("source", model.getSname());
-                intent.putExtra("url", model.getUrl());
-                intent.putExtra("publishedAt", model.getDate());
+                intent.putExtra(Constants.URLTOIMAGE, model.getImage());
+                intent.putExtra(Constants.DESCRIPTION, model.getDesc());
+                intent.putExtra(Constants.TITLE, model.getTitle());
+                intent.putExtra(Constants.AUTHOR, model.getAuthor());
+                intent.putExtra(Constants.SOURCE, model.getSname());
+                intent.putExtra(Constants.URL, model.getUrl());
+                intent.putExtra(Constants.PUBLISHEDAT, model.getDate());
                 context.startActivity(intent);
             }
         });

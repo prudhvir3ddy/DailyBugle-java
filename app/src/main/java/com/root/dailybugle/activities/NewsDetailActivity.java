@@ -14,7 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.root.dailybugle.R;
-import com.root.dailybugle.Widget.NewsAppWidget;
+import com.root.dailybugle.utils.Constants;
+import com.root.dailybugle.widget.NewsAppWidget;
 import com.root.dailybugle.database.AppExecutors;
 import com.root.dailybugle.database.NewsModel;
 import com.root.dailybugle.database.NewsRoomDatabase;
@@ -43,18 +44,18 @@ public class NewsDetailActivity extends AppCompatActivity {
         button2 = findViewById(R.id.favButton);
         progressBar = findViewById(R.id.progress);
         roomDatabase = NewsRoomDatabase.getDatabase(getApplicationContext());
-        final String source = bundle.getString("source");
+        final String source = bundle.getString(Constants.SOURCE);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(source);
-        final String title = bundle.getString("title");
-        final String author1 = bundle.getString("author");
-        final String publish = bundle.getString("publishedAt");
-        final String desc = bundle.getString("desc");
+        final String title = bundle.getString(Constants.TITLE);
+        final String author1 = bundle.getString(Constants.AUTHOR);
+        final String publish = bundle.getString(Constants.PUBLISHEDAT);
+        final String desc = bundle.getString(Constants.DESCRIPTION);
         author.setText(author1);
         date.setText(publish);
         description.setText(desc);
-        final String image = bundle.getString("image");
-        final String url = bundle.getString("url");
+        final String image = bundle.getString(Constants.URLTOIMAGE);
+        final String url = bundle.getString(Constants.URL);
         if(bundle.containsKey("ButtonText")){
             if(bundle.getBoolean("ButtonText")) {
                 button2.setText("Remove Favourite");

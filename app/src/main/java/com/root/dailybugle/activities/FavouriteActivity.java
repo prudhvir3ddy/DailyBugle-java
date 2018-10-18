@@ -48,14 +48,11 @@ public class FavouriteActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.news){
+                if(item.getItemId()==R.id.news)
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                }
-                if(item.getItemId()==R.id.search){
+                if(item.getItemId()==R.id.search)
                     startActivity(new Intent(getApplicationContext(),SearchActivity.class));
-                }
                 if(item.getItemId()==R.id.favourites){
-                    Toast.makeText(getApplicationContext(),"favourites",Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }

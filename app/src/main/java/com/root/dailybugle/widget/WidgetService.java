@@ -1,4 +1,4 @@
-package com.root.dailybugle.Widget;
+package com.root.dailybugle.widget;
 
 import android.content.Intent;
 import android.widget.RemoteViewsService;

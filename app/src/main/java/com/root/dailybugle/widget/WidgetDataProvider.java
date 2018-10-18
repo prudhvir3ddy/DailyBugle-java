@@ -1,4 +1,4 @@
-package com.root.dailybugle.Widget;
+package com.root.dailybugle.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -62,10 +62,6 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
             });
         }
 
-    private void fetchData() {
-
-
-    }
 
     @Override
     public void onDestroy() {
@@ -106,9 +102,6 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
         Intent fillInIntent = new Intent();
         fillInIntent.putExtras(extras);
 
-
-        // Make it possible to distinguish the individual on-click
-        // action of a given item
         remoteViews.setOnClickFillInIntent(R.id.b2, fillInIntent);
         remoteViews.setOnClickFillInIntent(R.id.c1, fillInIntent);
         remoteViews.setOnClickFillInIntent(R.id.home_imgview, fillInIntent);
