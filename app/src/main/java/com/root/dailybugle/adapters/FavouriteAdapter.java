@@ -1,6 +1,5 @@
 package com.root.dailybugle.adapters;
 
-import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,7 +15,6 @@ import android.widget.ProgressBar;
 import com.root.dailybugle.R;
 import com.root.dailybugle.activities.NewsDetailActivity;
 import com.root.dailybugle.database.NewsModel;
-import com.root.dailybugle.models.Model;
 import com.root.dailybugle.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -31,6 +29,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
         this.list=list;
         this.context=context;
     }
+
     @NonNull
     @Override
     public FavouriteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -71,7 +70,6 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
                 intent.putExtra(Constants.SOURCE, model.getSname());
                 intent.putExtra(Constants.URL, model.getUrl());
                 intent.putExtra(Constants.PUBLISHEDAT, model.getDate());
-                intent.putExtra("ButtonText",model.isThere());
                 context.startActivity(intent);
             }
         });

@@ -23,4 +23,7 @@ public interface NewsDao {
 
     @Query("SELECT * from news_row")
     List<NewsModel> getAllNews1();
+
+    @Query("SELECT isThere from news_row where title=:title AND date=:date")
+    boolean getFav(String title, String date);
 }

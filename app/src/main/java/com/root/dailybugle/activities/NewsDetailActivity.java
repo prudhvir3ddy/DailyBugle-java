@@ -4,9 +4,9 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,11 +14,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.root.dailybugle.R;
-import com.root.dailybugle.utils.Constants;
-import com.root.dailybugle.widget.NewsAppWidget;
 import com.root.dailybugle.database.AppExecutors;
 import com.root.dailybugle.database.NewsModel;
 import com.root.dailybugle.database.NewsRoomDatabase;
+import com.root.dailybugle.utils.Constants;
+import com.root.dailybugle.widget.NewsAppWidget;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -29,11 +29,14 @@ public class NewsDetailActivity extends AppCompatActivity {
     Button button, button2;
     ProgressBar progressBar;
     private NewsRoomDatabase roomDatabase;
+    boolean isExistFav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
+        final NewsRoomDatabase newsRoomDatabase;
+        newsRoomDatabase = NewsRoomDatabase.getDatabase(getApplicationContext());
 
         final Bundle bundle = getIntent().getExtras();
         description = findViewById(R.id.eventdescription);
@@ -56,11 +59,15 @@ public class NewsDetailActivity extends AppCompatActivity {
         description.setText(desc);
         final String image = bundle.getString(Constants.URLTOIMAGE);
         final String url = bundle.getString(Constants.URL);
-        if(bundle.containsKey("ButtonText")){
-            if(bundle.getBoolean("ButtonText")) {
-                button2.setText("Remove Favourite");
+
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                isExistFav = newsRoomDatabase.newsDao().getFav(title, publish);
+                if (isExistFav)
+                    button2.setText("Remove Favourite");
             }
-        }
+        });
         Picasso.with(this)
                 .load(image)
                 .into(imageView, new Callback() {

@@ -116,7 +116,6 @@ public class SearchActivity extends AppCompatActivity {
                         Log.d("error", "" + anError);
                     }
                 });
-
     }
 
     private static List<Model> getJsonArrayList(JSONArray jsonArray) {
@@ -129,14 +128,13 @@ public class SearchActivity extends AppCompatActivity {
                     JSONObject j = jsonArray.getJSONObject(i);
                     Model model=new Model();
                     JSONObject s=j.getJSONObject(Constants.SOURCE);
-                    model.setAuthor(j.getString(Constants.AUTHOR));
-                    model.setDesc(j.getString(Constants.DESCRIPTION));
-                    model.setImage(j.getString(Constants.URLTOIMAGE));
-                    model.setUrl(j.getString(Constants.URL));
-                    model.setTitle(j.getString(Constants.TITLE));
-                    model.setSname(s.getString(Constants.NAME));
-                    model.setDate(j.getString(Constants.PUBLISHEDAT));
-
+                    model.setAuthor(j.optString(Constants.AUTHOR));
+                    model.setDesc(j.optString(Constants.DESCRIPTION));
+                    model.setImage(j.optString(Constants.URLTOIMAGE));
+                    model.setUrl(j.optString(Constants.URL));
+                    model.setTitle(j.optString(Constants.TITLE));
+                    model.setSname(s.optString(Constants.NAME));
+                    model.setDate(j.optString(Constants.PUBLISHEDAT));
                     list.add(model);
                 } catch (JSONException e) {
                     e.printStackTrace();

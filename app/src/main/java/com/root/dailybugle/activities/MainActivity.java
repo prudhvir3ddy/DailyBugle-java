@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
@@ -32,9 +33,11 @@ import com.root.dailybugle.utils.Connection;
 import com.root.dailybugle.utils.Constants;
 
 import net.steamcrafted.loadtoast.LoadToast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -165,14 +168,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject j = jsonArray.getJSONObject(i);
                     Model model = new Model();
                     JSONObject s = j.getJSONObject(Constants.SOURCE);
-                    model.setAuthor(j.getString(Constants.AUTHOR));
-                    model.setDesc(j.getString(Constants.DESCRIPTION));
-                    model.setImage(j.getString(Constants.URLTOIMAGE));
-                    model.setUrl(j.getString(Constants.URL));
-                    model.setTitle(j.getString(Constants.TITLE));
-                    model.setSname(s.getString(Constants.NAME));
-                    model.setDate(j.getString(Constants.PUBLISHEDAT));
-
+                    model.setAuthor(j.optString(Constants.AUTHOR));
+                    model.setDesc(j.optString(Constants.DESCRIPTION));
+                    model.setImage(j.optString(Constants.URLTOIMAGE));
+                    model.setUrl(j.optString(Constants.URL));
+                    model.setTitle(j.optString(Constants.TITLE));
+                    model.setSname(s.optString(Constants.NAME));
+                    model.setDate(j.optString(Constants.PUBLISHEDAT));
                     list.add(model);
                 } catch (JSONException e) {
                     e.printStackTrace();

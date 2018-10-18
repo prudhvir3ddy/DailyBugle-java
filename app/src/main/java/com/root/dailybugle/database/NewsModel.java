@@ -1,8 +1,6 @@
 package com.root.dailybugle.database;
 
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "news_row",primaryKeys = {"sname","date"})
@@ -22,17 +20,6 @@ public class NewsModel {
         this.date=date;
         this.isThere=isThere;
     }
-//    @Ignore
-//    public NewsModel(String sname,String author,String title,String desc,String image,String url,String date,boolean isThere){
-//        this.sname=sname;
-//        this.author=author;
-//        this.title=title;
-//        this.desc=desc;
-//        this.image=image;
-//        this.url=url;
-//        this.date=date;
-//        this.isThere=isThere;
-//    }
 
     public String getDate() {
         return date;
@@ -93,9 +80,6 @@ public class NewsModel {
     public void setUrl(String url) {
         this.url = url;
     }
-//
-//    public int getId() { return id; }
-//
-//    public void setId(int id) { this.id = id; }
+
 
 }

@@ -11,7 +11,7 @@
         <item>"sports"</item>
         <item>"technology"</item>
     </string-array>
-    <string name="appwidget_text">EXAMPLE</string>
+    <string name="appwidget_text">DailyBugle</string>
     <string name="add_widget">Add widget</string>
     <string name="please_add_stories_to_display_here">Please Add Stories to Display Here</string>
     <string name="Click_to_Add">Click to Add</string>
