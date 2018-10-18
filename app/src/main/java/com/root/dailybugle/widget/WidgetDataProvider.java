@@ -12,6 +12,7 @@ import com.root.dailybugle.R;
 import com.root.dailybugle.database.AppExecutors;
 import com.root.dailybugle.database.NewsModel;
 import com.root.dailybugle.database.NewsRoomDatabase;
+import com.root.dailybugle.utils.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -86,14 +87,14 @@ class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
         }
         Bundle extras = new Bundle();
         extras.putInt("WidgetDataProvider", position);
-        extras.putString("image", model.getImage());
-        extras.putString("desc", model.getDesc());
-        extras.putString("title", model.getTitle());
-        extras.putString("author", model.getAuthor());
-        extras.putString("source", model.getSname());
-        extras.putString("url", model.getUrl());
-        extras.putString("publishedAt", model.getDate());
-        extras.putBoolean("ButtonText", model.isThere());
+        extras.putString(Constants.URLTOIMAGE, model.getImage());
+        extras.putString(Constants.DESCRIPTION, model.getDesc());
+        extras.putString(Constants.TITLE, model.getTitle());
+        extras.putString(Constants.AUTHOR, model.getAuthor());
+        extras.putString(Constants.SOURCE, model.getSname());
+        extras.putString(Constants.URL, model.getUrl());
+        extras.putString(Constants.PUBLISHEDAT, model.getDate());
+
 
         Intent fillInIntent = new Intent();
         fillInIntent.putExtras(extras);
