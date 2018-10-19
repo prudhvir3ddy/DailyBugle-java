@@ -7,7 +7,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -65,7 +64,7 @@ public class SearchActivity extends AppCompatActivity {
                 if(connection.isInternet())
                     getData(k);
                 else
-                    Toast.makeText(getApplicationContext(),"No Internet Connection",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -109,7 +108,6 @@ public class SearchActivity extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
                         lt.error();
-                        Log.d("error", "" + anError);
                     }
                 });
     }

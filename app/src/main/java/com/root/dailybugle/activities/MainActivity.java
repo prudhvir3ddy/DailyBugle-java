@@ -10,7 +10,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -96,26 +95,26 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 item = adapterView.getItemAtPosition(position);
                 ((TextView) adapterView.getChildAt(0)).setTextColor(Color.WHITE);
-                if (item.toString().equals("technology")) {
-                    getData("technology");
+                if (item.toString().equals(getString(R.string.technology))) {
+                    getData(getString(R.string.technology));
                 }
-                if (item.toString().equals("business"))
-                    getData("business");
-                if (item.toString().equals("sports"))
-                    getData("sports");
-                if (item.toString().equals("general"))
-                    getData("general");
-                if (item.toString().equals("entertainment"))
-                    getData("entertainment");
-                if (item.toString().equals("health"))
-                    getData("health");
-                if (item.toString().equals("science"))
-                    getData("science");
+                if (item.toString().equals(getString(R.string.business)))
+                    getData(getString(R.string.business));
+                if (item.toString().equals(getString(R.string.sports)))
+                    getData(getString(R.string.sports));
+                if (item.toString().equals(getString(R.string.general)))
+                    getData(getString(R.string.general));
+                if (item.toString().equals(getString(R.string.entertainment)))
+                    getData(getString(R.string.entertainment));
+                if (item.toString().equals(getString(R.string.health)))
+                    getData(getString(R.string.health));
+                if (item.toString().equals(getString(R.string.science)))
+                    getData(getString(R.string.science));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                getData("technology");
+                getData(getString(R.string.technology));
             }
         });
 
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         if(connection.isInternet())
             fetchData(Constants.HEAD_URL+s+"&"+Constants.APIKEY+"="+BuildConfig.API_KEY);
         else
-            Toast.makeText(getApplicationContext(),"No Internet Connection",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.no_internet, Toast.LENGTH_SHORT).show();
     }
     private void fetchData(String url) {
 
@@ -149,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(ANError anError) {
                         lt.error();
-                        Log.d("error", "" + anError);
                     }
                 });
     }

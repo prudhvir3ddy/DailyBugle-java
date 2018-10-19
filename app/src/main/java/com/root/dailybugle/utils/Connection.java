@@ -16,8 +16,8 @@ public class Connection {
         if(manager!=null){
             NetworkInfo[] info = manager.getAllNetworkInfo();
             if (info != null)
-                for (NetworkInfo anInfo : info)
-                    if (anInfo.getState() == NetworkInfo.State.CONNECTED) {
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
                         return true;
                     }
         }

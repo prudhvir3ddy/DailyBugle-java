@@ -199,7 +199,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorAccent"
                     android:text="@string/read_more"
-                    android:textColor="#ffffff" />
+                    android:textColor="@color/white" />
 
                 <View
                     android:layout_width="2dp"
@@ -213,7 +213,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorAccent"
                     android:text="@string/add_to_favourites"
-                    android:textColor="#ffffff" />
+                    android:textColor="@color/white" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 

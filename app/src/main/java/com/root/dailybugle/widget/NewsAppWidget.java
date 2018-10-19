@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import com.root.dailybugle.R;
 import com.root.dailybugle.activities.FavouriteActivity;
@@ -70,7 +69,6 @@ public class NewsAppWidget extends AppWidgetProvider {
             int appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                     AppWidgetManager.INVALID_APPWIDGET_ID);
             int viewIndex = intent.getIntExtra("WidgetDataProvider", 0);
-            Toast.makeText(context, "Touched view " + viewIndex, Toast.LENGTH_SHORT).show();
         }
         super.onReceive(context, intent);
     }

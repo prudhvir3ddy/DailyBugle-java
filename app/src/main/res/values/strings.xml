@@ -31,4 +31,12 @@
     <string name="image_for_news">Image for news</string>
     <string name="favourites">Favourites</string>
     <string name="search">search</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="technology">technology</string>
+    <string name="business">business</string>
+    <string name="sports">sports</string>
+    <string name="general">general</string>
+    <string name="entertainment">entertainment</string>
+    <string name="health">health</string>
+    <string name="science">science</string>
 </resources>
