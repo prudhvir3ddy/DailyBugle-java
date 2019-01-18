@@ -84,7 +84,8 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
         final ProgressBar progressBar;
         final Button b2;
         final CardView cardView;
-        public FavouriteViewHolder(View itemView) {
+
+        FavouriteViewHolder(View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.home_imgview);
             progressBar=itemView.findViewById(R.id.progress);

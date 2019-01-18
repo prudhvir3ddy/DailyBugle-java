@@ -23,7 +23,6 @@ import java.util.List;
 public class FavouriteActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
     private FavouriteAdapter adapter;
     private NewsRoomDatabase newsRoomDatabase;
     private BottomNavigationView bottomNavigationView;
@@ -37,7 +36,7 @@ public class FavouriteActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.frecyclerview);
         bottomNavigationView=findViewById(R.id.fnavigation);
         bottomNavigationView.setSelectedItemId(R.id.favourites);
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
 

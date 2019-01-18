@@ -19,14 +19,14 @@ import com.root.dailybugle.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
 
-    private final List<Model> list;
+    private final ArrayList<Model> list;
     private final Context context;
 
- public SearchAdapter(List<Model> list, Context context){
+    public SearchAdapter(ArrayList<Model> list, Context context) {
      this.list=list;
      this.context=context;
  }

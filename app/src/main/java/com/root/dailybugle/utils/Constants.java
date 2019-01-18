@@ -14,4 +14,5 @@ public class Constants {
     public static final String HEAD_URL="https://newsapi.org/v2/top-headlines?country=in&category=";
     public static final String QUERY="q";
     public static final String APIKEY="apiKey";
+    public static final String ARTICLES = "articles";
 }

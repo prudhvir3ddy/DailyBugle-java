@@ -24,10 +24,6 @@ import com.squareup.picasso.Picasso;
 public class NewsDetailActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private TextView description;
-    private TextView author;
-    private TextView date;
-    private Button button;
     private Button button2;
     private ProgressBar progressBar;
     private NewsRoomDatabase roomDatabase;
@@ -41,11 +37,11 @@ public class NewsDetailActivity extends AppCompatActivity {
         newsRoomDatabase = NewsRoomDatabase.getDatabase(getApplicationContext());
 
         final Bundle bundle = getIntent().getExtras();
-        description = findViewById(R.id.eventdescription);
+        TextView description = findViewById(R.id.eventdescription);
         imageView = findViewById(R.id.eventimg);
-        author = findViewById(R.id.authortext);
-        date = findViewById(R.id.dateText);
-        button = findViewById(R.id.urlButton);
+        TextView author = findViewById(R.id.authortext);
+        TextView date = findViewById(R.id.dateText);
+        Button button = findViewById(R.id.urlButton);
         button2 = findViewById(R.id.favButton);
         progressBar = findViewById(R.id.progress);
         roomDatabase = NewsRoomDatabase.getDatabase(getApplicationContext());

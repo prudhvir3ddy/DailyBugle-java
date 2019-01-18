@@ -1,6 +1,9 @@
 package com.root.dailybugle.models;
 
-public class Model {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Model implements Parcelable {
     private String date;
     private String sname;
     private String author;
@@ -8,6 +11,31 @@ public class Model {
     private String desc;
     private String image;
     private String url;
+
+    public static final Creator<Model> CREATOR = new Creator<Model>() {
+        @Override
+        public Model createFromParcel(Parcel in) {
+            return new Model(in);
+        }
+
+        @Override
+        public Model[] newArray(int size) {
+            return new Model[size];
+        }
+    };
+
+    private Model(Parcel in) {
+        date = in.readString();
+        sname = in.readString();
+        author = in.readString();
+        title = in.readString();
+        desc = in.readString();
+        image = in.readString();
+        url = in.readString();
+    }
+
+    public Model() {
+    }
 
     public String getDate() {
         return date;
@@ -65,4 +93,19 @@ public class Model {
         this.url = url;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(date);
+        dest.writeString(sname);
+        dest.writeString(author);
+        dest.writeString(title);
+        dest.writeString(desc);
+        dest.writeString(image);
+        dest.writeString(url);
+    }
 }

@@ -19,17 +19,18 @@ import com.root.dailybugle.utils.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
     private final Context context;
-    private List<Model> list;
+    private ArrayList<Model> list;
 
-    public HomeAdapter(List<Model> list, Context context){
+    public HomeAdapter(ArrayList<Model> list, Context context) {
         this.list=list;
         this.context=context;
     }
-    public void onrefresh(List<Model> list){
+
+    public void onrefresh(ArrayList<Model> list) {
         this.list.clear();
         this.list =list;
         notifyDataSetChanged();
@@ -89,7 +90,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         final ProgressBar progressBar;
         final Button b2;
         final CardView cardView;
-        public HomeViewHolder(View itemView) {
+
+        HomeViewHolder(View itemView) {
             super(itemView);
                 imageView=itemView.findViewById(R.id.home_imgview);
                 progressBar=itemView.findViewById(R.id.progress);
