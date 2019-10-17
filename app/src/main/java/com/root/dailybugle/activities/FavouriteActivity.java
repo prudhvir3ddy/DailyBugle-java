@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.root.dailybugle.R;
 import com.root.dailybugle.adapters.FavouriteAdapter;
@@ -26,15 +28,17 @@ public class FavouriteActivity extends AppCompatActivity {
     private FavouriteAdapter adapter;
     private NewsRoomDatabase newsRoomDatabase;
     private BottomNavigationView bottomNavigationView;
+    private ImageView nothingImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite);
 
-        newsRoomDatabase=NewsRoomDatabase.getDatabase(getApplicationContext());
-        recyclerView=findViewById(R.id.frecyclerview);
-        bottomNavigationView=findViewById(R.id.fnavigation);
+        nothingImage = findViewById(R.id.nothing_image);
+        newsRoomDatabase = NewsRoomDatabase.getDatabase(getApplicationContext());
+        recyclerView = findViewById(R.id.frecyclerview);
+        bottomNavigationView = findViewById(R.id.fnavigation);
         bottomNavigationView.setSelectedItemId(R.id.favourites);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -43,20 +47,22 @@ public class FavouriteActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.news)
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                if(item.getItemId()==R.id.search)
-                    startActivity(new Intent(getApplicationContext(),SearchActivity.class));
+                if (item.getItemId() == R.id.news)
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                if (item.getItemId() == R.id.search)
+                    startActivity(new Intent(getApplicationContext(), SearchActivity.class));
                 return false;
             }
         });
 
-        NewsViewModel viewModel= ViewModelProviders.of(this).get(NewsViewModel.class);
+
+        NewsViewModel viewModel = ViewModelProviders.of(this).get(NewsViewModel.class);
         viewModel.getList().observe(this, new Observer<List<NewsModel>>() {
             @Override
             public void onChanged(@Nullable List<NewsModel> newsModels) {
-                adapter=new FavouriteAdapter(newsModels,FavouriteActivity.this);
-                recyclerView.setAdapter(adapter);
+                adapter = new FavouriteAdapter(newsModels, FavouriteActivity.this);
+                if (newsModels.size() == 0) nothingImage.setVisibility(View.VISIBLE);
+                else recyclerView.setAdapter(adapter);
             }
         });
 

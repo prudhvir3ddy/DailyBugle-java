@@ -10,10 +10,17 @@
         android:id="@+id/frecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/fnavigation"
-
-        >
+        android:layout_above="@id/fnavigation">
     </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/nothing_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nothing"
+        android:visibility="gone"
+        android:layout_centerInParent="true" />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/fnavigation"
         android:layout_width="match_parent"
